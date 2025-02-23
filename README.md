@@ -6,4 +6,4 @@
 
 - [Práctica2](https://github.com/sssccv/Practicas_SergioSalazar_DesarrolloWeb/blob/main/practica-2.md)
 
-.
+.[Práctica3](https://sssccv.github.io/Practicas_SergioSalazar_DesarrolloWeb/)
