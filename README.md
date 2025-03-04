@@ -8,4 +8,4 @@
 
 - [Prácticas 3 y 4](https://sssccv.github.io/Practicas_SergioSalazar_DesarrolloWeb/cv-web/)
 
--[Práctica 4 (no se porqué las fotos no funcionan)](https://sssccv.github.io/Practicas_SergioSalazar_DesarrolloWeb/cv-web2/)
+- [Práctica 5 (no se porqué las fotos no funcionan)](https://sssccv.github.io/Practicas_SergioSalazar_DesarrolloWeb/cv-web2/)
