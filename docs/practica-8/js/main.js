@@ -11,17 +11,28 @@ const $confirmPasswordError = d.querySelector("#confirm-password-error");
 const $successMessage = d.querySelector("#success-message");
 const $errorsMessages = d.querySelectorAll(".error");
 
-// Creamos el loader
+// Creamos el contenedor del loader y el texto
+const $loaderContainer = d.createElement("div");
+$loaderContainer.classList.add("loader-container");
+
 const $loader = d.createElement("div");
 $loader.classList.add("loader");
-$form.appendChild($loader);
+
+const $loadingText = d.createElement("div");
+$loadingText.classList.add("loading-text");
+$loadingText.textContent = "Cargando...";
+
+// Añadimos loader y texto al contenedor
+$loaderContainer.appendChild($loader);
+$loaderContainer.appendChild($loadingText);
+$form.appendChild($loaderContainer);
 
 function showLoader() {
-  $loader.style.display = "block";
+  $loaderContainer.style.display = "flex";
 }
 
 function hideLoader() {
-  $loader.style.display = "none";
+  $loaderContainer.style.display = "none";
 }
 
 // Función de Validación del Formulario
@@ -39,11 +50,9 @@ function validateForm(e) {
   let namePattern = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/;
   if ($nameInput.value.trim() === "") {
     $nameError.textContent = "El nombre es obligatorio";
-    $nameInput.focus();
     isValid = false;
   } else if (!namePattern.test($nameInput.value.trim())) {
     $nameError.textContent = "El nombre solo puede contener letras y espacios";
-    $nameInput.focus();
     isValid = false;
   }
 
@@ -57,11 +66,10 @@ function validateForm(e) {
     isValid = false;
   }
 
-  // Validar campo Contraseña (mínimo 8 caracteres, al menos 1 mayúscula, 1 minúscula, 1 número y 1 carácter especial)
+  // Validar campo Contraseña
   let passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
-
   if ($passwordInput.value.trim() === "") {
-    $passwordError.textContent = "La Contraseña es obligatoria";
+    $passwordError.textContent = "La contraseña es obligatoria";
     isValid = false;
   } else if (!passwordPattern.test($passwordInput.value.trim())) {
     $passwordError.textContent =
@@ -72,7 +80,7 @@ function validateForm(e) {
   // Validar campo Confirmar Contraseña
   if ($confirmPasswordInput.value.trim() === "") {
     $confirmPasswordError.textContent =
-      "La confirmación de la Contraseña es obligatoria";
+      "La confirmación de la contraseña es obligatoria";
     isValid = false;
   } else if (
     $confirmPasswordInput.value.trim() !== $passwordInput.value.trim()
@@ -82,7 +90,7 @@ function validateForm(e) {
     isValid = false;
   }
 
-  // Enviando el formulario
+  // Simular envío si todo es válido
   if (isValid) {
     showLoader();
 

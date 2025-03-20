@@ -1,43 +1,99 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%;
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  padding: 1.25rem;
+}
+
+form {
+  max-width: 400px;
+  margin: auto;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.5rem;
+  box-sizing: border-box;
+}
+
+.error {
+  color: red;
+  font-size: 85%;
+}
+
+.success {
+  color: green;
+  font-size: 1rem;
+  text-align: center;
+}
+
+/* Loader */
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 20px 0;
+  display: none;
+}
+
+.loader {
+  width: 40px;
+  height: 40px;
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #3498db;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 10px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
   }
-  
-  html {
-    font-size: 100%;
+  100% {
+    transform: rotate(360deg);
   }
-  
-  body {
-    font-family: system-ui, sans-serif;
-    padding: 1.25rem;
+}
+
+/* Animación de "Cargando..." */
+.loading-text {
+  font-size: 1rem;
+  color: #555;
+  font-weight: bold;
+  animation: dots 1.5s steps(4, end) infinite;
+  white-space: nowrap;
+}
+
+@keyframes dots {
+  0% {
+    content: "Cargando";
   }
-  
-  form {
-    max-width: 400px;
-    margin: auto;
+  25% {
+    content: "Cargando.";
   }
-  
-  .form-group {
-    margin-bottom: 1rem;
+  50% {
+    content: "Cargando..";
   }
-  
-  .form-group label {
-    display: block;
-    margin-bottom: 0.25rem;
+  75% {
+    content: "Cargando...";
   }
-  
-  .form-group input {
-    width: 100%;
-    padding: 0.5rem;
-    box-sizing: border-box;
+  100% {
+    content: "Cargando";
   }
-  
-  .error {
-    color: red;
-    font-size: 85%;
-  }
-  
-  .success {
-    color: green;
-    font-size: 1rem;
-    text-align: center;
-  }
+}
