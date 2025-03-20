@@ -11,74 +11,90 @@ const $confirmPasswordError = d.querySelector("#confirm-password-error");
 const $successMessage = d.querySelector("#success-message");
 const $errorsMessages = d.querySelectorAll(".error");
 
+// Creamos el loader
+const $loader = d.createElement("div");
+$loader.classList.add("loader");
+$form.appendChild($loader);
+
+function showLoader() {
+  $loader.style.display = "block";
+}
+
+function hideLoader() {
+  $loader.style.display = "none";
+}
+
 // Función de Validación del Formulario
 function validateForm(e) {
-  // Cancela el comportamiento por defecto del evento
   e.preventDefault();
-  console.log(e);
 
-  //Limpiamos los mensajes de error de los inputs
+  // Limpiamos los mensajes de error
   $errorsMessages.forEach((el) => {
     el.textContent = "";
   });
 
   let isValid = true;
 
-  //Validar campo Nombre
+  // Validar campo Nombre (solo letras y espacios)
+  let namePattern = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/;
   if ($nameInput.value.trim() === "") {
     $nameError.textContent = "El nombre es obligatorio";
     $nameInput.focus();
     isValid = false;
+  } else if (!namePattern.test($nameInput.value.trim())) {
+    $nameError.textContent = "El nombre solo puede contener letras y espacios";
+    $nameInput.focus();
+    isValid = false;
   }
 
-  //Validar campo Correo
+  // Validar campo Correo
   let emailPattern = /^(\w+[/./-]?){1,}@[a-z]+[/.]\w{2,}$/;
   if ($emailInput.value.trim() === "") {
     $emailError.textContent = "El correo es obligatorio";
-    $emailInput.focus();
     isValid = false;
   } else if (!emailPattern.test($emailInput.value.trim())) {
     $emailError.textContent = "El formato del correo es inválido";
-    $emailInput.focus();
     isValid = false;
   }
 
-  //Validar campo Contraseña
+  // Validar campo Contraseña (mínimo 8 caracteres, al menos 1 mayúscula, 1 minúscula, 1 número y 1 carácter especial)
+  let passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
+
   if ($passwordInput.value.trim() === "") {
     $passwordError.textContent = "La Contraseña es obligatoria";
-    $passwordInput.focus();
     isValid = false;
-  } else if ($passwordInput.value.trim().length < 8) {
+  } else if (!passwordPattern.test($passwordInput.value.trim())) {
     $passwordError.textContent =
-      "La Contraseña al menos debe tener 8 caracteres";
-    $passwordInput.focus();
+      "La contraseña debe tener al menos 8 caracteres, 1 mayúscula, 1 minúscula, 1 número y 1 carácter especial";
     isValid = false;
   }
 
-  //Validar campo Confirmar Contraseña
+  // Validar campo Confirmar Contraseña
   if ($confirmPasswordInput.value.trim() === "") {
     $confirmPasswordError.textContent =
       "La confirmación de la Contraseña es obligatoria";
-    $confirmPasswordInput.focus();
     isValid = false;
   } else if (
     $confirmPasswordInput.value.trim() !== $passwordInput.value.trim()
   ) {
     $confirmPasswordError.textContent =
-      "La confirmación de la Contraseña no coincide con el valor de la contraseña";
-    $confirmPasswordInput.focus();
+      "La confirmación no coincide con la contraseña";
     isValid = false;
   }
 
-  //Enviando el formulario
+  // Enviando el formulario
   if (isValid) {
-    alert("Enviando el formulario");
-    $successMessage.textContent = "Formulario enviado exitosamente";
-    $form.reset();
+    showLoader();
+
     setTimeout(() => {
-      $successMessage.textContent = "";
-      $form.submit();
-    }, 3000);
+      hideLoader();
+      $successMessage.textContent = "Formulario enviado exitosamente";
+      $form.reset();
+
+      setTimeout(() => {
+        $successMessage.textContent = "";
+      }, 3000);
+    }, 5000); // Simula el envío durante 5 segundos
   }
 }
 
