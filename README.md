@@ -11,3 +11,7 @@
 - [Práctica 5 (no se porqué las fotos no funcionan)](https://sssccv.github.io/Practicas_SergioSalazar_DesarrolloWeb/cv-web2/)
 
 - [Práctica 6](https://sssccv.github.io/Practicas_SergioSalazar_DesarrolloWeb/practica-6/)
+
+-[Práctica 7](https://sssccv.github.io/Practicas_SergioSalazar_DesarrolloWeb/practica-7/)
+
+-[Práctica 8](https://sssccv.github.io/Practicas_SergioSalazar_DesarrolloWeb/practica-8/)
