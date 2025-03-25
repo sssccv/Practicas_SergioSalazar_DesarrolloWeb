@@ -22,6 +22,8 @@ async function cargarProductos() {
       $item.dataset.id = producto.id;
       $item.dataset.nombre = producto.title;
       $item.dataset.precio = producto.price;
+      $item.dataset.imagen = producto.image;  // Guardar la URL de la imagen en el dataset
+
       $item.innerHTML = `
         <img src="${producto.image}" alt="${producto.title}" style="width:100px; height:auto; display:block; margin-bottom: 10px;">
         ${producto.title} - $${producto.price.toFixed(2)}
@@ -58,6 +60,7 @@ d.addEventListener("click", function (e) {
     const $producto = e.target.closest(".producto");
     let nombre = $producto.dataset.nombre;
     let precio = parseFloat($producto.dataset.precio);
+    let imagen = $producto.dataset.imagen;
 
     let $itemExistente = Array.from($listaCarrito.children).find((item) => {
       return item.querySelector(".nombre-producto").textContent === nombre;
@@ -69,7 +72,10 @@ d.addEventListener("click", function (e) {
       $cantidad.textContent = cantidad + 1;
     } else {
       const $itemCarrito = d.createElement("li");
+      $itemCarrito.classList.add("item-carrito");
+
       $itemCarrito.innerHTML = `
+        <img src="${imagen}" alt="${nombre}" style="width:50px; height:auto; margin-right:10px; vertical-align:middle;">
         <span class="nombre-producto">${nombre}</span> - $<span class="precio-producto">${precio.toFixed(2)}</span>
         <span class="cantidad">1</span>
         <button class="btn-mas">+</button>
@@ -85,7 +91,6 @@ d.addEventListener("click", function (e) {
   if (e.target.matches(".btn-mas") || e.target.matches(".btn-menos")) {
     const $itemCarrito = e.target.closest("li");
     const $cantidad = $itemCarrito.querySelector(".cantidad");
-    const $precio = $itemCarrito.querySelector(".precio-producto");
     let cantidad = parseInt($cantidad.textContent);
 
     if (e.target.matches(".btn-mas")) {
