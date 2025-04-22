@@ -9,7 +9,49 @@
 <body>
     <h1>DiagramaRelacional</h1>
     <img src="./DiagramaRelacionalpng.png" alt="DiagramaRelacional">
+    
     <h1>Modelo Entidad-Relacion</h1>
     <img src="./Entidad-Relacion.png" alt="Entidad-Relacion">
+    <ul>
+        <li><strong>Cliente</strong>
+          <ul>
+            <li>Atributos: ID_Cliente, Nombre, Dirección, Teléfono, Email</li>
+          </ul>
+        </li>
+      
+        <li><strong>Producto (Propiedades)</strong>
+          <ul>
+            <li>Atributos: ID_Producto, Descripción, Precio, Stock, Estado (disponible, vendido, etc.)</li>
+          </ul>
+        </li>
+      
+        <li><strong>Carrito de compras (Compra)</strong>
+          <ul>
+            <li>Atributos: ID_Carrito, Fecha, Total</li>
+          </ul>
+        </li>
+      
+        <li><strong>Orden (Compra confirmada)</strong>
+          <ul>
+            <li>Atributos: ID_Orden, Fecha_Compra, Total, Estado (pagado, pendiente, cancelado)</li>
+          </ul>
+        </li>
+      
+        <li><strong>Pago</strong>
+          <ul>
+            <li>Atributos: ID_Pago, Monto, Fecha_Pago, Método</li>
+          </ul>
+        </li>
+      
+        <li><strong>Relaciones</strong>
+          <ul>
+            <li>Cliente - Carrito de compras: Un cliente puede tener uno o más carritos, pero generalmente uno activo.</li>
+            <li>Carrito de compras - Producto: Un carrito puede contener varios productos, y un producto puede estar en varios carritos (relación de muchos a muchos, con una tabla intermedia "DetalleCarrito").</li>
+            <li>Carrito de compras - Orden: Cuando el cliente realiza la compra, se genera una orden.</li>
+            <li>Orden - Pago: La orden se paga mediante un pago asociado.</li>
+          </ul>
+        </li>
+      </ul>
+      
 </body>
 </html>
