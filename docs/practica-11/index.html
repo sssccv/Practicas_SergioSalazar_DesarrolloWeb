@@ -59,7 +59,6 @@
       <ul>
         <li>Un cliente debe tener un nombre, dirección, teléfono y email válidos.</li>
         <li>El email del cliente debe ser único.</li>
-        <li>Un cliente puede tener múltiples carritos, pero solo uno puede estar activo a la vez.</li>
       </ul>
     
       <h2> Producto</h2>
@@ -72,7 +71,6 @@
       <h2> Carrito de Compras</h2>
       <ul>
         <li>Un carrito debe estar asociado a un cliente.</li>
-        <li>Un carrito puede contener múltiples productos a través del "DetalleCarrito".</li>
         <li>El total del carrito debe calcularse automáticamente en base a los productos y cantidades.</li>
         <li>Un carrito no puede convertirse en orden si no tiene productos.</li>
       </ul>
@@ -88,8 +86,6 @@
       <ul>
         <li>Cada pago debe estar vinculado a una orden.</li>
         <li>El monto del pago debe coincidir con el total de la orden.</li>
-        <li>Solo se pueden aceptar métodos de pago válidos (ej. tarjeta, efectivo, transferencia).</li>
-        <li>Una orden solo puede tener un pago asociado, a menos que se permita pago fraccionado.</li>
       </ul>
     
       <h2> Relaciones Generales</h2>
@@ -98,6 +94,6 @@
         <li>Un producto no puede eliminarse si está asociado a un carrito u orden.</li>
         <li>Si se cancela una orden, el stock de los productos debe restablecerse.</li>
       </ul>
-      
+
 </body>
 </html>
