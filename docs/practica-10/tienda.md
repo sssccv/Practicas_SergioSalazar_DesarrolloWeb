@@ -42,3 +42,6 @@ Mirez Inmobiliaria es una tienda online que se especializa en la promoción y ve
 
 ![Diagrama de flujo](./assets/Diagrama.png)
 
+## Práctica 12
+
+![Sopabase](./assets/Captura%20de%20pantalla%202025-05-05%20225134.png)
