@@ -22,4 +22,4 @@
 
 - [Práctica 11](https://sssccv.github.io/Practicas_SergioSalazar_DesarrolloWeb/practica-11/)
 
-- [Práctica 12](https://sssccv.github.io/Practicas_SergioSalazar_DesarrolloWeb/practica-11/)
+- [Práctica 12](https://sssccv.github.io/Practicas_SergioSalazar_DesarrolloWeb/practica-10/)
